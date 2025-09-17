@@ -1,0 +1,117 @@
+/* -------------------------------------------------
+   全域：關閉 body 捲動，避免雙滑軌
+   ------------------------------------------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  /* overflow: visible; */
+  overflow: hidden;
+  width: 100%;
+  left: 0;
+  right: 0;
+  scroll-snap-align: start;
+}
+
+.one {
+  background-color: lightblue;
+}
+.two {
+  background-color: lightgreen;
+}
+.three {
+  background-color: lightcoral;
+}
+
+.apple {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+
+.marquee {
+  display: flex;
+  overflow: hidden;
+  margin-top: 3rem;
+  height: 180px; /* Fixed height */
+  width: 100%; /* Full width of the container */
+
+}
+
+.marqueeContent {
+  display: flex;
+  justify-content: start;
+  width: max-content;
+  flex-shrink: 0;
+  animation: marquee 20s linear infinite;
+
+}
+
+.marqueeImage {
+  width: auto; /* Use the image's natural width */
+  height: 150px; /* Fixed height */
+  object-fit: cover; /* Ensure the image does not distort */
+  flex-shrink: 0; /* Prevent the image from shrinking */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%); /* 無縫滾動，移出整個內容 */
+  }
+}
+
+.noiseBackground {
+  /* 注意：在 CSS 檔案中，SVG 內的 # 不需要編碼 */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><filter id='noise'><feTurbulence type='fractalNoise' baseFrequency='6' numOctaves='5'/><feColorMatrix type='matrix' values='0 0 0 0 0.3  0 0 0 0 0.3  0 0 0 0 0.3  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(#noise)' fill='white'/></svg>");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  filter: brightness(1.5);
+}
+
+/*
+   雜訊背景視覺特效 - 應用在單一元素上
+   使用偽元素來創建一個覆蓋在元素背景上的半透明雜點圖層
+*/
+.noise-effect {
+  position: relative;
+  /* 確保偽元素可以相對於此元素定位 */
+  overflow: hidden;
+  /* 防止雜訊偽元素溢出 */
+}
+
+.noise-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  /* 讓偽元素位於背景和內容之間，如果 section 內容有 z-index */
+  opacity: 0.05;
+  /* 調整透明度來控制雜訊強度 */
+
+  /* 這是一個 Base64 編碼的 1x1 像素黑白雜訊圖片 */
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxIDEiPjxwYXRoIGZpbGw9IiMwMDAiIGQ9Ik0wIDBIMXoiLz48L3N2Zg==");
+
+  /* 讓背景圖片平鋪 */
+  background-repeat: repeat;
+  /* 使用 filter 來增加視覺效果 */
+  filter: url(#noiseFilter);
+  /* 確保事件可以穿透雜訊層，以便點擊下層內容 */
+  pointer-events: none;
+}

@@ -1,0 +1,255 @@
+/* Profile.css - 會員資料頁面專用樣式 */
+
+/* 主容器 */
+.profile-container {
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 頁面標題 */
+.profile-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color-base_text_2);
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+/* 標題下劃線 */
+.profile-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background: var(--color-primary_1);
+}
+
+/* 表單容器 */
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* 雙欄佈局 (FirstName + LastName) */
+.profile-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* 輸入框組 */
+.profile-input-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 輸入框樣式 */
+.profile-input {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 3rem;
+  border: 2px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 1rem;
+  background: var(--color-secondary_2);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+/* 輸入框聚焦效果 */
+.profile-input:focus {
+  border-color: var(--color-primary_1);
+  background: var(--color-background);
+  box-shadow: 0 0 0 3px rgba(107, 122, 79, 0.1);
+}
+
+/* 輸入框佔位符樣式 */
+.profile-input::placeholder {
+  color: var(--color-base_text_1);
+  font-weight: 400;
+}
+
+/* 輸入框圖標 */
+.profile-input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-base_text_1);
+  font-size: 1.1rem;
+  z-index: 1;
+}
+
+/* 密碼顯示/隱藏按鈕 */
+.profile-password-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--color-base_text_1);
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 0.25rem;
+  z-index: 1;
+}
+
+/* 按鈕懸停效果 */
+.profile-password-toggle:hover {
+  color: var(--color-primary_1);
+}
+
+/* 儲存按鈕 */
+.profile-save-btn {
+  width: 100%;
+  max-width: 200px;
+  margin: 2rem auto 0;
+  background: var(--color-accent_2);
+  color: var(--color-background);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+/* 按鈕懸停與點擊效果 */
+.profile-save-btn:hover {
+  background: var(--color-accent_1);
+  transform: translateY(-1px);
+  box-shadow: var(--out);
+}
+
+/* 按鈕點擊效果 */
+.profile-save-btn:active {
+  transform: translateY(0);
+}
+
+/* 載入和錯誤狀態樣式 */
+.loading {
+  text-align: center;
+  padding: 1rem;
+  color: var(--color-base_text_3);
+  font-style: italic;
+}
+
+.error {
+  text-align: center;
+  padding: 1rem;
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
+}
+
+/* Google 用戶提示樣式 */
+.google-user-notice {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #e3f2fd;
+  border: 1px solid #90caf9;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  color: #1565c0;
+}
+
+.google-user-notice .material-icons {
+  color: #1976d2;
+  font-size: 1.2rem;
+}
+
+.google-user-notice p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.profile-input-icon.person {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: var(--color-accent_2);
+  mask-image: url("/icon/person.svg");
+}
+.profile-input-icon.calendar_today {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: var(--color-accent_2);
+  mask-image: url("/icon/calendar_today.svg");
+}
+.profile-input-icon.email {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: var(--color-accent_2);
+  mask-image: url("/icon/mail.svg");
+}
+.profile-input-icon.lock {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: var(--color-accent_2);
+  mask-image: url("/icon/lock.svg");
+}
+.profile-input-icon.phone {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: var(--color-accent_2);
+  mask-image: url("/icon/phone.svg");
+}
+.profile-input-icon.home {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: var(--color-accent_2);
+  mask-image: url("/icon/home.svg");
+}
+.material-icons.visibility_off {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: var(--color-accent_2);
+  mask-image: url("/icon/visibility_off.svg");
+}
+.material-icons.visibility {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: var(--color-accent_2);
+  mask-image: url("/icon/visibility.svg");
+}
+.material-icons.hourglass_empty {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--color-secondary_2);
+  mask-image: url("/icon/hourglass_empty.svg");
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 1.5rem;
+  }
+
+  .profile-row {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-container {
+    padding: 1rem;
+  }
+
+  .profile-title {
+    font-size: 1.3rem;
+  }
+}

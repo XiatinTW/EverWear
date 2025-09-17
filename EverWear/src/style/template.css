@@ -1,0 +1,188 @@
+:root {
+  /* Color Palette */
+  /* 已定位色票 */
+
+  /* 導覽列背景／標題底色 */
+  --color-primary_1: #6B7A4F;
+  /* 按鈕 hover／區塊強調 */
+  --color-primary_2: #556B2F;
+  /* 整體背景色／區塊底色 */
+  --color-secondary_1: #EAE6D9;
+  /* 卡片背景／頁面分隔區塊 */
+  --color-secondary_2: #F5F5DC;
+  /* CTA 按鈕（例如「立即預約」） */
+  --color-accent_1: #B85B3D;
+  /* 標籤強調色／價格標示／小區塊提醒 */
+  --color-accent_2: #3C1E14;
+  /* 內文文字、說明區 */
+  --color-base_text_1: #6E4F3A;
+  /* 標題文字／footer 文字／連結文字 */
+  --color-base_text_2: #4E3E31;
+
+  /* 待確定色票  */
+  --color-background: #fff;
+  --color-border: #dee2e6;
+
+  /* Typography */
+  --font-family-base: "Helvetica Neue", Arial, sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.5;
+
+  /* 標題字型變數 */
+  /* 標題字型共用變數 */
+  --heading-font-family: "Helvetica Neue", Helvetica;
+  --heading-letter-spacing: 0px;
+  --heading-line-height: normal;
+  --heading-font-style: normal;
+  /* h1~h6 專屬 weight/size */
+  --h1-font-weight: 700;
+  --h1-font-size: 64px;
+  /* h2 */
+  --h2-font-weight: 700;
+  --h2-font-size: 56px;
+  /* h3 */
+  --h3-font-weight: 700;
+  --h3-font-size: 48px;
+  /* h4 */
+  --h4-font-weight: 400;
+  --h4-font-size: 40px;
+  /* h5 */
+  --h5-font-weight: 400;
+  --h5-font-size: 32px;
+  /* h6 */
+  --h6-font-weight: 400;
+  --h6-font-size: 24px;
+  /* 段落字型變數 */
+  --p-font-weight: 400;
+  --p-font-size: 16px;
+  --p-line-height: 26px;
+  /* 其他通用變數 */
+  --modal-shadow: -13px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  --in: -1px 3px 1.899999976158142px -3px rgba(0, 0, 0, 0.25);
+  --out: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+
+
+}
+
+/* 字型套用class */
+.text-h1 {
+    font-family: var(--heading-font-family);
+    letter-spacing: var(--heading-letter-spacing);
+    line-height: var(--heading-line-height);
+    font-style: var(--heading-font-style);
+    font-weight: var(--h1-font-weight);
+    font-size: var(--h1-font-size);
+    white-space: nowrap;
+    position: relative;
+    width: fit-content;
+    color: var(--color-base_text_2);
+}
+
+.text-h2 {
+    font-family: var(--heading-font-family);
+    letter-spacing: var(--heading-letter-spacing);
+    line-height: var(--heading-line-height);
+    font-style: var(--heading-font-style);
+    font-weight: var(--h2-font-weight);
+    font-size: var(--h2-font-size);
+    white-space: nowrap;
+    position: relative;
+    width: fit-content;
+    margin: 0;
+    color: var(--color-base_text_2);
+}
+
+.text-h3 {
+    width: fit-content;
+    font-family: var(--heading-font-family);
+    letter-spacing: var(--heading-letter-spacing);
+    line-height: var(--heading-line-height);
+    font-style: var(--heading-font-style);
+    font-weight: var(--h3-font-weight);
+    font-size: var(--h3-font-size);
+    white-space: nowrap;
+    position: relative;
+    margin: 0;
+    color: var(--color-base_text_2);
+}
+
+.text-h4 {
+    font-family: var(--heading-font-family);
+    letter-spacing: var(--heading-letter-spacing);
+    line-height: var(--heading-line-height);
+    font-style: var(--heading-font-style);
+    font-weight: var(--h4-font-weight);
+    font-size: var(--h4-font-size);
+    white-space: nowrap;
+    position: relative;
+    width: fit-content;
+    margin: 0;
+    color: var(--color-base_text_2);
+}
+
+.text-h5 {
+    font-family: var(--heading-font-family);
+    letter-spacing: var(--heading-letter-spacing);
+    line-height: var(--heading-line-height);
+    font-style: var(--heading-font-style);
+    font-weight: var(--h5-font-weight);
+    font-size: var(--h5-font-size);
+    white-space: nowrap;
+    position: relative;
+    width: fit-content;
+    margin: 0;
+    color: var(--color-base_text_2);
+}
+
+.text-h6 {
+    font-family: var(--heading-font-family);
+    letter-spacing: var(--heading-letter-spacing);
+    line-height: var(--heading-line-height);
+    font-style: var(--heading-font-style);
+    font-weight: var(--h6-font-weight);
+    font-size: var(--h6-font-size);
+    position: relative;
+    align-self: stretch;
+    height: 51px;
+    margin: 0;
+    color: var(--color-base_text_2);
+}
+
+.text-p {
+    font-family: var(--heading-font-family);
+    letter-spacing: var(--heading-letter-spacing);
+    font-style: var(--heading-font-style);
+    line-height: var(--p-line-height);
+    font-weight: var(--p-font-weight);
+    font-size: var(--p-font-size);
+    position: relative;
+    align-self: stretch;
+    list-style-type: disc;
+    color: var(--color-base_text_2);
+    margin: 0;
+}
+
+.table {
+  --bs-table-bg: rgba(255, 255, 255, 0) !important;
+}
+
+
+@media (max-width: 400px) {
+  .roulette {
+    width: unset;
+  }
+}
+/* data-collection-1-mode 屬性 <div data-collection-1-mode="pc"> */
+[data-collection-1-mode="pc"] {
+    --collection-1-layout-padding-x: 80px;
+    --collection-1-layout-padding-y: 60px;
+    --collection-1-itemcrad-padding-x: 15px;
+    --collection-1-coupon: initial;
+}
+
+[data-collection-1-mode="medium"] {
+    --collection-1-layout-padding-x: 25px;
+    --collection-1-layout-padding-y: 40px;
+    --collection-1-itemcrad-padding-x: 0px;
+    --collection-1-coupon: none;
+}

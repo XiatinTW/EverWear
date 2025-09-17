@@ -1,0 +1,33 @@
+/*
+   雜訊背景視覺特效 - 應用在單一元素上
+   使用偽元素來創建一個覆蓋在元素背景上的半透明雜點圖層
+*/
+.noise-effect {
+  position: relative;
+  /* 確保偽元素可以相對於此元素定位 */
+  overflow: hidden;
+  /* 防止雜訊偽元素溢出 */
+}
+
+.noise-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  /* 讓偽元素位於背景和內容之間，如果 section 內容有 z-index */
+  opacity: 0.05;
+  /* 調整透明度來控制雜訊強度 */
+
+  /* 這是一個 Base64 編碼的 1x1 像素黑白雜訊圖片 */
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxIDEiPjxwYXRoIGZpbGw9IiMwMDAiIGQ9Ik0wIDBIMXoiLz48L3N2Zg==");
+
+  /* 讓背景圖片平鋪 */
+  background-repeat: repeat;
+  /* 使用 filter 來增加視覺效果 */
+  filter: url(#noiseFilter);
+  /* 確保事件可以穿透雜訊層，以便點擊下層內容 */
+  pointer-events: none;
+}

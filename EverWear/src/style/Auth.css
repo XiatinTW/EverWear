@@ -1,0 +1,436 @@
+/* Auth.css - 登入/註冊頁面專用樣式 */
+
+/* 主容器 - 全螢幕分割佈局 */
+.auth-container {
+  min-height: 100vh;
+  padding: 90px 0 0 0;
+  background-color: var(--color-secondary_1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family-base);
+}
+
+/* 驗證狀態訊息 */
+.auth-verification-message {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  animation: slideInDown 0.5s ease-out;
+}
+
+.auth-verification-message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.auth-verification-message.info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+.auth-verification-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* 主卡片容器 */
+.auth-card {
+  background: var(--color-background);
+  border-radius: 6px;
+  box-shadow: var(--out);
+  overflow: hidden;
+  width: 100%;
+  max-width: 1000px;
+  height: 700px;
+  display: flex;
+  position: relative;
+}
+
+/* 歡迎面板 (左側/右側) */
+.auth-welcome-panel {
+  flex: 1;
+  background: var(--color-accent_2);
+  color: var(--color-background);
+  /* 歡迎面板文字顏色 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  left: 0;
+  transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 2;
+}
+
+/* 註冊模式時滑動到右側 */
+.auth-welcome-panel.slide-right {
+  transform: translateX(100%);
+}
+
+/* 歡迎面板內容 */
+.auth-welcome-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 1;
+}
+
+/* 歡迎主標題 */
+.auth-welcome-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  color: var(--color-background);
+}
+
+/* 歡迎副標題 */
+.auth-welcome-subtitle {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  color: var(--color-background);
+
+}
+
+/* 歡迎按鈕 */
+.auth-welcome-btn {
+  background: var(--color-primary_1);
+  color: var(--color-background);
+  border: none;
+  justify-content: center;
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* 歡迎按鈕懸停效果 */
+.auth-welcome-btn:hover {
+  background: var(--color-primary_2);
+  transform: translateY(-2px);
+  box-shadow: var(--out);
+}
+
+/* 表單面板 */
+.auth-form-panel {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--color-background);
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  right: 0;
+  transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 1;
+}
+
+/* 註冊模式時滑動到左側 */
+.auth-form-panel.slide-left {
+  transform: translateX(-100%);
+}
+
+/* 表單標題 */
+.auth-form-title {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--color-base_text_2);
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+/* 標題下的裝飾線 */
+.auth-form-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: var(--color-primary_1);
+}
+
+/* 表單容器 */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+/* 輸入框組 */
+.auth-input-group {
+  width: 100%;
+  margin-bottom: 1rem;
+  position: relative;
+
+}
+
+/* 有密碼提示的輸入框群組需要額外下方間距 */
+.auth-input-group:has(.auth-password-hint) {
+  margin-bottom: 2.3rem;
+}
+
+/* 姓名欄位並排容器 */
+.auth-name-row {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* 半寬輸入框組 */
+.auth-input-half {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+/* 輸入框樣式 */
+.auth-input {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 3rem;
+  border: 2px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 1rem;
+  background: var(--color-secondary_2);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+/* 輸入框聚焦效果 */
+.auth-input:focus {
+  border-color: var(--color-primary_1);
+  background: var(--color-background);
+  box-shadow: 0 0 0 3px rgba(107, 122, 79, 0.1);
+}
+
+/* 輸入框佔位符樣式 */
+.auth-input::placeholder {
+  color: var(--color-base_text_1);
+  font-weight: 400;
+}
+
+/* 輸入框圖標 */
+.auth-input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-base_text_1);
+  font-size: 1.1rem;
+
+}
+
+/* 密碼顯示/隱藏按鈕 */
+.auth-password-toggle {
+  position: absolute;
+  width: 35px;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--color-base_text_1);
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 0.25rem;
+}
+
+/* 密碼顯示/隱藏按鈕懸停效果 */
+.auth-password-toggle:hover {
+  color: var(--color-primary_1);
+}
+
+/* 密碼提示文字 */
+.auth-password-hint {
+  position: absolute;
+  left: 48px;
+  /* 對齊 icon 右側，根據實際調整 */
+  top: calc(100% + 6px);
+  color: var(--color-base_text_1);
+  font-size: 0.85em;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* 主要按鈕 */
+.auth-submit-btn {
+  width: 100%;
+  background: var(--color-primary_1);
+  color: var(--color-background);
+  border: none;
+  justify-content: center;
+  padding: 0.8rem;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+/* 主要按鈕懸停效果 */
+.auth-submit-btn:hover {
+  background: var(--color-primary_2);
+  transform: translateY(-1px);
+  box-shadow: var(--out);
+}
+
+/* 按鈕按下效果 */
+.auth-submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Google 登入區域 */
+.auth-google-section {
+  text-align: center;
+  margin-top: 0.5rem;
+
+}
+
+/* Google 登入文字 */
+.auth-google-text {
+  color: var(--color-base_text_1);
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+
+/* Google 按鈕 */
+.auth-google-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-accent_2);
+  color: white;
+  justify-content: center;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Google 按鈕懸停效果 */
+.auth-google-btn:hover:not(:disabled) {
+  background: var(--color-primary_2);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+}
+
+/* Google 按鈕停用狀態 */
+.auth-google-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Google 按鈕載入動畫 */
+.auth-google-btn .material-icons {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 註冊頁面額外樣式 */
+.auth-register-note {
+  font-size: 0.8rem;
+  color: var(--color-base_text_1);
+  text-align: center;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .auth-card {
+    flex-direction: column;
+    height: auto;
+    max-width: 400px;
+  }
+
+  .auth-welcome-panel,
+  .auth-welcome-panel.slide-right {
+    position: relative;
+    width: 100%;
+    height: auto;
+    transform: none;
+    padding: 2rem;
+    min-height: 200px;
+  }
+
+  .auth-welcome-title {
+    font-size: 2rem;
+  }
+
+  .auth-form-panel,
+  .auth-form-panel.slide-left {
+    position: relative;
+    width: 100%;
+    height: auto;
+    transform: none;
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 1rem;
+    padding-top: 65px;
+  }
+
+  .auth-card {
+    border-radius: 6px;
+  }
+
+  .auth-welcome-panel {
+    padding: 1.5rem;
+    order: 1;
+  }
+
+  .auth-form-panel {
+    padding: 1.5rem;
+  }
+}

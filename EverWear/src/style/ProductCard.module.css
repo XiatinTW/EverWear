@@ -1,0 +1,162 @@
+/* src/components/WishlistPage/ProductCard.module.css */
+
+.productCard {
+    background-color: #f5f5f1;
+
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.productImageContainer {
+    height: 320px;
+    /* 1. 直接設定一個固定的高度 */
+    display: flex;
+    /* 2. 使用 Flexbox 來置中圖片 */
+    align-items: center;
+    /* 垂直置中 */
+    justify-content: center;
+    /* 水平置中 */
+    overflow: hidden;
+    /* 可選：確保圖片不會超出容器 */
+}
+
+.productImageContainer img {
+    width: 100%;
+    height: 100%;
+    /* 讓圖片嘗試填滿容器 */
+    max-height: 320px;
+    /* 再次確保不超過設定的高度 */
+    object-fit: contain;
+    /* 3. 核心：讓圖片等比例縮放並完整顯示在容器內 */
+    display: block;
+}
+
+
+.productInfo {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    /* ▼▼▼ 【核心修正】增加 padding-top 為警告標示騰出固定空間 ▼▼▼ */
+    padding-top: 2.5rem;
+    align-items: flex-start;
+    position: relative;
+}
+
+.productTitle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 2.5em;
+}
+
+.productTitle h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: normal;
+    flex-grow: 1;
+}
+
+.productDetail,
+.productPrice {
+    margin: 4px 0;
+    color: var(--color-base_text_2);
+    font-size: 1rem;
+}
+
+
+.productPrice {
+    margin-top: auto;
+    /* <--- 【核心修正 2】 讓價格自動推向底部 */
+    padding-top: 1rem;
+    font-weight: bold;
+    color: var(--color-base_text_2);
+}
+
+
+.addToCartBtn {
+    background-color: #6B7259;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s;
+    border-radius: 4px;
+    max-width: unset;
+    display: block;
+}
+
+.addToCartBtn:hover {
+    background-color: #595F4A;
+}
+
+.wishlistBtn {
+    position: relative;
+    background: none;
+    border: none;
+    width: unset;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.bookmarkIcon {
+    width: 24px;
+    height: 24px;
+    stroke: #333;
+    stroke-width: 1.5;
+    fill: #333;
+    /* 預設實心 (因為在待購清單頁) */
+    transition: fill 0.2s, stroke 0.2s;
+}
+
+.stockWarning {
+    color: #D9534F;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    position: absolute;
+    /* <-- 新增: 設定為絕對定位 */
+    top: 0;
+    /* <-- 新增: 對齊 .productInfo 的頂部 */
+    left: 0;
+    /* <-- 新增: 對齊 .productInfo 的左側 */
+
+}
+
+/* 響應式設計 (屬於卡片的部分) */
+@media (max-width: 768px) {
+    .productCard {
+        width: auto;
+        /* 讓兩張卡片並排 */
+        margin-bottom: 1rem;
+        min-width: 177px;
+    }
+
+    .productTitle h2 {
+        font-size: 1rem;
+    }
+
+    .productDetail,
+    .productPrice {
+        font-size: 0.9rem;
+    }
+
+    .addToCartBtn {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+
+.colorSwatch {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    margin-right: 8px;
+    vertical-align: middle;
+    /* 讓色塊與文字對齊 */
+}

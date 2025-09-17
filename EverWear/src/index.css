@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #f1efef;
+
+  /* Spacing */
+  --spacing-unit: 8px;
+  /* or 0.5rem */
+  /* Border Radius */
+  --border-radius: 0.25rem;
+  /* Breakpoints */
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  /* min-width: 480px; */
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* @media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  } */
+/* } */
+
+:root {
+  /* Color Palette */
+  /* 已定位色票 */
+/* 導覽列背景／標題底色 */
+  --color-primary_1: #6B7A4F;
+  /* 按鈕 hover／區塊強調 */
+  --color-primary_2: #556B2F;
+  /* 整體背景色／區塊底色 */
+  --color-secondary_1: #EAE6D9;
+  /* 卡片背景／頁面分隔區塊 */
+  --color-secondary_2: #F5F5DC;
+  /* CTA 按鈕（例如「立即預約」） */
+  --color-accent_1: #B85B3D;
+  /* 標籤強調色／價格標示／小區塊提醒 */
+  --color-accent_2: #A25B41;
+  /* 內文文字、說明區 */
+  --color-base_text_1: #6E4F3A;
+  /* 標題文字／footer 文字／連結文字 */
+  --color-base_text_2: #4E3E31;
+
+  /* 待確定色票  */
+  --color-background: #fff;
+  --color-border: #dee2e6;
+}
+
+/* src/index.css 或 src/globals.css */
+

@@ -1,0 +1,91 @@
+/* src/components/WishlistPage/WishlistPage.module.css */
+
+.wishlistPageBody {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #EAE6D9; 
+    color: #333;
+}
+.wishlistPage *, .wishlistPage *::before, .wishlistPage *::after {
+    box-sizing: border-box;
+}
+.wishlistPage {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 20px 80px 20px;
+    min-height: 700px;
+}
+.wishlistHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.wishlistHeader h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+.cartIcon { display: none; cursor: pointer; }
+
+/* ▼▼▼ 【核心修正】 ▼▼▼ */
+
+/* 1. 桌面版靜態網格 (商品 <= 3) */
+.wishlistGridDesktop {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* 2. 手機版換行網格 */
+.wishlistGridMobile {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: 1rem; /* 例：12px */
+  /* grid-template-columns: repeat(2, minmax(160px, 1fr)); */
+  /* 若螢幕再小仍想維持兩欄、不擠壓：加水平捲動 ↓ */
+  /* overflow-x: auto; */
+}
+/* 3. JS 輪播的整體容器 */
+.wishlistCarousel {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* 4. JS 輪播中，用來顯示當前卡片的軌道 */
+.carouselTrack {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    flex-grow: 1; /* 讓軌道填滿中間的空間 */
+}
+
+/* 5. JS 輪播的左右按鈕樣式 */
+.carouselButton {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    flex-shrink: 0; /* 防止按鈕被壓縮 */
+}
+.carouselButton:hover {
+    background-color: #f0f0f0;
+}
+.carouselButton:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ▲▲▲ 【核心修正】 ▲▲▲ */
+
+
+@media (max-width: 768px) {
+    .wishlistPage { padding: 10px; padding-top: 100px; }
+    .wishlistHeader h1 { font-size: 1.2rem; text-align: left; flex-grow: 1; }
+    .cartIcon { display: block; }
+}

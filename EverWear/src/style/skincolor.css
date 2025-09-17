@@ -1,0 +1,234 @@
+/* 簡單的頁面樣式 */
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-secondary_1) !important;
+}
+
+.container_body canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+
+.container_body {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.container_body>div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#video {
+    display: none;
+    z-index: 1;
+    width: 55%;
+    height: 100%;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.custom-upload-label,
+button {
+    display: flex;
+    align-items: center;
+    max-width: 200px;
+    gap: 25px;
+    padding: 25px;
+    border-radius: 6px;
+    border: none;
+    background: var(--color-primary_2);
+    transition: 2s;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    justify-content: flex-start;
+    color: var(--color-secondary_2);
+}
+.controls_tools button {
+    display: flex;
+    align-items: center;
+    max-width: 200px;
+    gap: 25px;
+    padding: 25px;
+    border-radius: 6px;
+    border: none;
+    background: var(--color-primary_2);
+    transition: 2s;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    justify-content: flex-start;
+    color: var(--color-secondary_2);
+}
+
+.controls_tools {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    min-width: 220px;
+}
+
+.material-symbols-outlined {
+    font-size: 40px;
+}
+
+.custom-upload-label input[type="file"] {
+    display: none;
+}
+
+#video_image_wrapper {
+    position: relative;
+    min-width: 250px;
+    min-height: 250px;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#video_image {
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/video_image.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.uploaded-face {
+    display: flex;
+    background-color: #D9D9D9;
+    width: 60%;
+    height: 60%;
+    border-radius: 100%;
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.icon.account_box {
+    width: 24px;
+    height: 24px;
+    background-color: var(--color-secondary_1);
+    mask-size: cover;
+    mask-repeat: no-repeat;
+    mask-image: url('/icon/account_box.svg');
+}
+
+.icon.photo_camera {
+    width: 24px;
+    height: 24px;
+    background-color: var(--color-secondary_1);
+    mask-size: cover;
+    mask-repeat: no-repeat;
+    mask-image: url('/icon/photo_camera.svg');
+}
+
+@media screen and (min-width: 900px) {
+
+    div.pc_result {
+        display: flex;
+    }
+
+    div.pc_result h6 {
+        margin: 0;
+    }
+
+    div.pc_result h3 {
+        margin: 0;
+    }
+
+    div.meb_result {
+        display: none;
+    }
+    .gridround {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    div.container_body {
+        flex-direction: column;
+        gap: 25px;
+        padding-top: 40px;
+    }
+    div.controls_tools {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    div.container_body>div {
+        align-items: center;
+        width: 100%;
+        max-width: 700px;
+    }
+
+    div#video_image_wrapper {
+        width: 400px;
+        height: 400px;
+    }
+
+    div.pc_result {
+        display: none;
+    }
+
+    div.meb_result {
+        display: flex;
+    }
+
+    div.meb_result h6 {
+        margin: 0;
+        font-size: 16px;
+        height: auto;
+        align-self: center;
+    }
+
+    div.meb_result h3 {
+        margin: 0;
+        font-size: 32px;
+        text-align: center;
+    }
+    div.controls_tools>h6 {
+        font-size: 24px;
+        margin: 0px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    div.container_body {
+        padding: 10px;
+    }
+    div.container_body>div button,
+    div.container_body>div label {
+        max-width: 170px;
+        border-radius: 6px;
+    }
+    div.container_body>div {
+        max-width: 400px;
+        padding-bottom: 15px;
+    }
+}

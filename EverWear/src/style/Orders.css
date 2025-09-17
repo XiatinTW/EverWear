@@ -1,0 +1,322 @@
+/* Orders.css - 訂單紀錄頁面專用樣式 */
+
+/* 主容器 - 內容區域滾動 */
+.orders-container {
+  height: calc(100vh - 8rem);
+  overflow-y: auto;
+  padding: 2rem 0;
+  scroll-behavior: smooth;
+}
+
+/* 頁面標題 */
+.orders-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color-base_text_2);
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+/* 標題下方裝飾線 */
+.orders-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background: var(--color-primary_1);
+}
+
+/* 訂單列表容器 */
+.orders-list {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* 訂單卡片 */
+.order-card {
+  background: var(--color-background);
+  border-radius: 8px;
+  box-shadow: var(--out);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+/* 卡片懸停效果 */
+.order-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  border-color: var(--color-primary_1);
+}
+
+/* 訂單標題列 */
+.order-header {
+  background: var(--color-accent_2);
+  color: var(--color-background);
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+/* 標題列懸停效果 */
+.order-header:hover {
+  background: var(--color-primary_1) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+/* 訂單編號 */
+.order-number {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+  color: var(--color-secondary_1);
+}
+/* 展開/收合圖示 */
+.order-expand-icon {
+  transition: transform 0.3s ease;
+  font-size: 1.2rem;
+}
+/* 展開狀態圖示旋轉 */
+.order-card.expanded .order-expand-icon {
+  transform: rotate(180deg);
+}
+
+/* 訂單詳細內容 - 動畫方案二 */
+.order-details {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  background: var(--color-background);
+}
+
+.order-card.expanded .order-details {
+  max-height: 800px;
+  opacity: 1;
+}
+
+.order-details-content {
+  padding: 1.5rem;
+}
+
+/* 訂購日期 */
+.order-date {
+  color: var(--color-base_text_1);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* 商品列表 */
+.order-items {
+  margin-bottom: 1.5rem;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-secondary_2);
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+/* 商品圖片 */
+.item-image {
+  width: 64px;
+  height: 64px;
+  border-radius: 6px;
+  object-fit: cover;
+  margin-right: 1rem;
+  background: var(--color-secondary_2);
+  flex-shrink: 0;
+}
+
+/* 商品資訊 */
+.item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.item-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-base_text_2);
+  margin: 0 0 0.25rem 0;
+}
+
+.item-specs {
+  font-size: 0.85rem;
+  color: var(--color-base_text_1);
+  margin: 0;
+}
+
+/* 商品價格和數量 */
+.item-price-qty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  min-width: 100px;
+}
+
+.item-price {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-base_text_2);
+  margin: 0 0 0.25rem 0;
+}
+
+.item-quantity {
+  font-size: 0.9rem;
+  color: var(--color-base_text_1);
+  margin: 0;
+}
+
+/* 訂單總計 */
+.order-total {
+  padding-top: 1rem;
+  border-top: 2px solid var(--color-accent_2);
+  text-align: right;
+}
+
+.order-total-amount {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-accent_2);
+  margin: 0;
+}
+
+/* 美化滾動條 */
+.orders-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.orders-container::-webkit-scrollbar-track {
+  background: var(--color-secondary_2);
+  border-radius: 4px;
+}
+
+.orders-container::-webkit-scrollbar-thumb {
+  background: var(--color-primary_1);
+  border-radius: 4px;
+}
+
+.orders-container::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary_2);
+}
+
+/* 載入和錯誤狀態樣式 */
+.loading {
+  text-align: center;
+  padding: 1rem;
+  color: var(--color-base_text_3);
+  font-style: italic;
+}
+
+.error {
+  text-align: center;
+  padding: 1rem;
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
+}
+
+.material-icons.expand_more {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: var(--color-secondary_2);
+  mask-image: url("/icon/expand_more.svg");
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .orders-container {
+    height: calc(100vh - 6rem);
+    padding: 1rem 0;
+  }
+  
+  .orders-list {
+    padding: 0 0.5rem;
+  }
+  
+  .order-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .order-number {
+    font-size: 0.9rem;
+  }
+  
+  .order-details-content {
+    padding: 1rem;
+  }
+  
+  .item-image {
+    width: 48px;
+    height: 48px;
+    margin-right: 0.75rem;
+  }
+  
+  .order-item {
+    padding: 0.5rem 0;
+  }
+  
+  .item-name {
+    font-size: 0.9rem;
+  }
+  
+  .item-specs {
+    font-size: 0.8rem;
+  }
+  
+  .item-price {
+    font-size: 0.9rem;
+  }
+  
+  .item-quantity {
+    font-size: 0.8rem;
+  }
+  
+  .order-total-amount {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .orders-container {
+    height: calc(100vh - 4rem);
+  }
+  
+  .orders-list {
+    padding: 0 0.25rem;
+  }
+  
+  .order-header {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .order-details-content {
+    padding: 0.75rem;
+  }
+  
+  .item-price-qty {
+    min-width: 80px;
+  }
+}
